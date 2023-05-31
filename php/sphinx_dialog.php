@@ -2,7 +2,7 @@
 <?php
 header('Content-Disposition: inline');
 session_start();
-require "sphinx.php";
+require_once "sphinx.php";
 ?>
 <!DOCTYPE html>
 <html>
