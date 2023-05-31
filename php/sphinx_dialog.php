@@ -40,8 +40,11 @@ require "./sphinx.php";
 
         <?php
         $sphinx = new Sphinx('John', 25, 'London');
+        $_SESSION['sphinx'] = $sphinx;
         $sphinx->greet();
         $sphinx->check_json();
+$sphinx->thank_for_answering();
+$sphinx->ask_initial_questions();
 ?>
         <!-- Don't worry, regardless of the answer, I won't eat you! At least for now... -->
       </div>  
