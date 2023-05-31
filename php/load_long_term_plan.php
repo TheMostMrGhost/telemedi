@@ -5,14 +5,14 @@ $template = file_get_contents('base.php');
 // Replace placeholders in the main template
 $title = 'My Page Title';
 $header = 'Welcome to My Website';
-$content = file_get_contents('content.php');
+$subpage = file_get_contents('content.php');
 
 // Replace placeholders in the subpage template
-$subpageTitle = 'Hehehehe Title';
+$subpageTitle = 'LOND Title';
 $subpageContent = '<p>This is the content of the subpage.</p>';
 
 // Replace placeholders in the subpage template with specific content
-$subpage = str_replace('{{ACTION SCRIPT}}', "./load_middle_term_plan.php", $content);
+$subpage = str_replace('{{ACTION SCRIPT}}', "./load_middle_term_plan.php", $subpage);
 $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);
 // $subpage = str_replace('{{SUBPAGE_CONTENT}}', $subpageContent, $subpage);
 
@@ -22,6 +22,6 @@ $template = str_replace('{{HEADER}}', $header, $template);
 $template = str_replace('{{MIDDLE PAGE}}', $subpage, $template);
 
 // Output the final HTML
-echo $subpage
+echo $template;
 ?>
 
