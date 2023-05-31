@@ -1,0 +1,13 @@
+{
+"initial_questions": [
+    "What is your current level of knowledge or experience in [chosen subject]?",
+    "Are you familiar with any programming languages commonly used in [chosen subject], such as [relevant languages]?",
+    "Do you have any background in [relevant fields or concepts related to the chosen subject]?",
+    "Are you looking to learn [chosen subject] theory, practical implementation, or both?",
+    "What are your specific goals or objectives for learning [chosen subject]? (e.g., gaining a deep understanding, acquiring practical skills, preparing for a certification)",
+    "Are there any particular subtopics or areas within [chosen subject] that you are most interested in exploring?",
+    "Do you prefer a structured learning approach with clear milestones and progress tracking, or do you prefer a more flexible and self-directed learning style?",
+    "Are there any specific resources, such as textbooks, online courses, or tutorial series, that you already have in mind or prefer to use?"
+  ],
+  "thank_for_initial_answers" : "By providing your answers to these eight questions, I'll be able to gather the necessary information to create a tailored and perfect learning plan for the subject of your choice."
+}

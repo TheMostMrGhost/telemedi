@@ -1,12 +1,13 @@
 
 <?php
 header('Content-Disposition: inline');
-session_start();?>
+session_start();
+require "./sphinx.php";
+?>
 <!DOCTYPE html>
 <html>
   <head>
-
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
 
@@ -36,15 +37,12 @@ session_start();?>
         Hi, glad to see you!
         I'm Sphinx, your private guide to knowledge and wisdom. 
         Before we preceed, tell me about yourself
-        <form action="next.php" method="post">
-          <label for="about-yourself">Tell me about yourself:</label><br>
-          <textarea id="about-yourself" name="about-yourself" placeholder="Write anything you want to tell me..."></textarea><br>
 
-
-          <label for="field-knowledge">What would you like to learn about?</label><br>
-          <textarea id="field-knowledge" name="field-knowledge" placeholder="What interests you?"></textarea><br>
-          <button type="submit">Submit</button>
-        </form>
+        <?php
+        $sphinx = new Sphinx('John', 25, 'London');
+        $sphinx->greet();
+        $sphinx->check_json();
+?>
         <!-- Don't worry, regardless of the answer, I won't eat you! At least for now... -->
       </div>  
       <div class="right" style="background-color:#ccc;">Column</div>
