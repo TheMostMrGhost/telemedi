@@ -10,7 +10,7 @@ class Sphinx {
     private array $answers;
 
     public function __construct(string $name, int $age, string $location) {
-      echo "Loading <br>";
+      echo "Loading <br>"; // FIXME
       $this->load_json(self::$question_path);
       echo "Done <br>";
     }
