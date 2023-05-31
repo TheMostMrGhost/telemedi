@@ -22,14 +22,14 @@
         </div>
       </div>
 
-      <div class="left" style="background-color:#aaa;">Column</div>
+      <div class="left" style="background-color:#aaa;">{{LEFT PANE}}</div>
       <div class="middle" style="background-color:#bbb;">
-        {{MIDDLE_PAGE}}
+        {{MIDDLE PAGE}}
       </div>  
-      <div class="right" style="background-color:#ccc;">Column</div>
+      <div class="right" style="background-color:#ccc;">{{RIGHT PANE}}</div>
 
       <div class="footer">
-        <p>Footer</p>
+        <p>{{FOOTER}}</p>
       </div>
     </div>
 
