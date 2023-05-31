@@ -1,23 +1,10 @@
-<?php
-// declare(strict_types=1);
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-require_once "./sphinx.php";
-session_start();
-$sphinx = $_SESSION['sphinx'];
-$sphinx->store_initial_questions();
-?>
-
-
-
-
+<!-- template.php -->
 <!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
-
 
     <div class="grid-container">
       <div class="header">
@@ -37,13 +24,7 @@ $sphinx->store_initial_questions();
 
       <div class="left" style="background-color:#aaa;">Column</div>
       <div class="middle" style="background-color:#bbb;">
-      <?php 
-      echo "Based on your answers I propose this:";
-      $sphinx->propose_plan("long_term_plan");
-      ?>
-
-<!-- $sphinx->thank_for_answering(); -->
-        <!-- Don't worry, regardless of the answer, I won't eat you! At least for now... -->
+        {{MIDDLE_PAGE}}
       </div>  
       <div class="right" style="background-color:#ccc;">Column</div>
 

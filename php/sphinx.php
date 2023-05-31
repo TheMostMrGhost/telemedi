@@ -59,7 +59,7 @@ class Sphinx {
       echo "<form action='./initial_questions_answer.php' method='post'>";
 
       for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
-          $question = $this->prepare_question($this->questions['initial_questions']['templates'][$ii]);
+          $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii]);
           $inputName = 'answer_' . $ii;
           echo "<label for='$inputName'>$question:</label><br>";
           echo "<input type='text' id='$inputName' name='$inputName'><br><br>";
@@ -69,6 +69,42 @@ class Sphinx {
       echo "</form>";
 
 
+    }
+
+    public function propose_plan(string $plan_duration) : void{ // long, middle, short term
+      // TODO change to enum
+      // $gpt_output = $this->prompt_gpt(
+      //     $this->questions[$plan_duration]['tasks'],
+      //     implode("\n",$this->questions[$plan_duration]['templates']) // Concat into one, context-like variable
+      //   );
+$templates = implode("\n", $this->questions[$plan_duration]['templates']);
+$gpt_output = $this->prompt_gpt(
+    $this->questions[$plan_duration]['tasks'],
+    $templates
+);
+      echo $gpt_output . "\n"; // TODO USE DISPLAYER
+
+      switch ($plan_duration) {
+          case 'long_term_plan':
+              // Code to be executed if $option is 'long'
+              echo "Option is long.";
+              break;
+
+          case 'middle_term_plan':
+              // Code to be executed if $option is 'middle'
+              echo "Option is middle.";
+              break;
+
+          case 'short_term_plan':
+              // Code to be executed if $option is 'short'
+              echo "Option is short.";
+              break;
+
+          default:
+              // Code to be executed if $option doesn't match any of the cases
+              echo "Invalid option.";
+              break;
+      }
     }
 
 
@@ -87,9 +123,10 @@ class Sphinx {
           $info_for_GPT .= "\n";
       }
 
-      echo $info_for_GPT;
+      // echo $info_for_GPT;
       $this->update_gpt_state($info_for_GPT);
     }
+
 
 
     public function update_gpt_state(string &$text) : void{
@@ -97,7 +134,7 @@ class Sphinx {
     // For now not implemented, since I do not have API
     }
 
-    private function prepare_question(string &$text, string &$state_prompt = null) : string {
+    private function prompt_gpt(string &$text, string &$state_prompt = null) : string {
     //THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
      return $text;
     }
