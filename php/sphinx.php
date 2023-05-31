@@ -1,5 +1,6 @@
 <?php 
 declare(strict_types=1);
+session_start();
 
 class Sphinx {
     private static $hello = "Welcome  young seeker of wisdom!I'm Sphinx and I will guide you during your journey!";
@@ -66,17 +67,14 @@ class Sphinx {
     echo "<button type='submit'>Submit</button>";
     echo "</form>";
 
+// TODO add "do you want to add something else?"
+
 
         }
 
-    private function prepare_question(string &$text, string &$state_prompt = null) : string {
-    //THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
-     return $text;
-    }
 
     public function store_initial_questions() : void{
-
-      string $info_for_GPT = "User answers:\n";
+      $info_for_GPT = "User answers:\n";
 
       for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
           $inputName = 'answer_' . $ii;
@@ -89,14 +87,19 @@ class Sphinx {
           $info_for_GPT .= "\n";
       }
 
-      $this->pass_to_gpt($info_for_GPT);
+      $this->update_gpt_state($info_for_GPT);
     }
 
 
-    public function pass_to_gpt(string &$text) : void{
-// THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
-// For now not implemented, since I do not have API
-}
+    public function update_gpt_state(string &$text) : void{
+    // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
+    // For now not implemented, since I do not have API
+    }
+
+    private function prepare_question(string &$text, string &$state_prompt = null) : string {
+    //THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
+     return $text;
+    }
 
 
 

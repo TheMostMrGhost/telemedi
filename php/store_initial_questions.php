@@ -2,5 +2,7 @@
 
 session_start();
 require "./sphinx.php";
-$_SESSION['sphinx']->processForm();
+// $_SESSION['sphinx']->store_initial_questions();
+header("Location: ../index.html");
+exit;
 ?>

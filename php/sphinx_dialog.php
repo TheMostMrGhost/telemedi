@@ -2,7 +2,7 @@
 <?php
 header('Content-Disposition: inline');
 session_start();
-require "./sphinx.php";
+require "sphinx.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,9 +43,9 @@ require "./sphinx.php";
         $_SESSION['sphinx'] = $sphinx;
         $sphinx->greet();
         $sphinx->check_json();
-$sphinx->thank_for_answering();
 $sphinx->ask_initial_questions();
 ?>
+<!-- $sphinx->thank_for_answering(); -->
         <!-- Don't worry, regardless of the answer, I won't eat you! At least for now... -->
       </div>  
       <div class="right" style="background-color:#ccc;">Column</div>
