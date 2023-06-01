@@ -41,7 +41,6 @@
   width: 180px;
   height: 100px;
 }
-          /* <img src="../images/sphinx.png" alt="Logo" width="60" height="auto"> */
 
 .card .picture img {
   max-width: 100%;
@@ -110,11 +109,8 @@ body {
   flex-direction: column;
   padding: 20px;
   background-color: var(--bg2);
-  background-size: 40px 100%;
   margin-right: 0;
   margin-left: 0;
-  /* margin-top: 20px; */
-  /* margin-bottom: -200px; */
   padding: 0;
 }
 
@@ -123,8 +119,6 @@ body {
   background-color: var(--bg2);
   border: 3px solid var(--bg3);
   border-radius: 10px 10px 10px 0;
-  /* border-width: 2px; */
-  /* border-color: red; */
   padding: 10px;
 }
 
@@ -133,20 +127,13 @@ body {
   background-color: var(--bg2);
   border-radius: 10px 10px 0 10px;
   border: 3px solid var(--blue);
-  /* text-align: right; */
   width: 100%;
   min-height: 130px;
   color: var(--blue);
   font-size: 13pt;
-  /* border-width: 2px; */
-  /* border-color: red; */
   padding: 10px;
 }
 
-/* } */
-/* .left, */
-/* .right { */
-/* Style the left column */
 .left {
   grid-area: left;
 }
@@ -181,7 +168,6 @@ body {
 .log-in{
   background-color: var(--bg4);
   color: var(--blue);
-  /* border: 1px solid black; */
 
 }
 /* Style the footer */
@@ -255,7 +241,6 @@ a:hover {
 
 .log-in {
   grid-area: log-in;
-  /* background-color: #316161; */
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -279,9 +264,7 @@ a:hover {
 
 
 h1, h2, h3 {
-  /* background-color: var(--secondary-color); */
   color: var(--yellow);
-  /* text-align: center; */
   padding: 0;
   margin: 0;
 }
@@ -294,7 +277,6 @@ input[type="submit"]
   padding: 10px;
   background-color:var(--fg);
   border-radius: 10px;
-  /* background-color: transparent; */
   color: gold;
   font-family: "Times New Roman", sans-serif;
 
@@ -308,13 +290,11 @@ input[type="submit"]:hover
   border: none;
   background-color:var(--purple);
   border-radius: 10px;
-  /* background-color: transparent; */
   color: gold;
   font-family: "Times New Roman", sans-serif;
 }
 
 .column-base-top {
-  /* background-image: linear-gradient(to bottom, var(--bg4), var(--bg2)); */
   background-color: var(--bg3);
   text-align: center;
   padding: 10px;

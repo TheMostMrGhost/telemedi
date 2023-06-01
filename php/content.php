@@ -6,6 +6,7 @@
     </div>
   <form action="{{ACTION SCRIPT}}" method="post">
     <input type="hidden" name="next_page" value="{{NEXT PAGE}}">
+    <br>
     <button type="submit">Next</button>
   </form>
 

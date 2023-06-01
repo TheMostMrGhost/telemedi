@@ -11,8 +11,15 @@ if (!isset($_SESSION['sphinx'])) {
 } else {
   $sphinx = $_SESSION['sphinx'] ;
 }
+
+if (!isset($_SESSION['displayer'])) {
+  $displayer = new Displayer('../images/left_pane','../images/right_pane');
+  $_SESSION['displayer'] = $displayer;
+} else {
+  $displayer = $_SESSION['displayer'] ;
+}
+
 // Load the main template file
-$displayer = new Displayer('../images/left_pane','../images/right_pane');
 $template = $displayer->prepare_base_frame();
 
 // Replace placeholders in the main template

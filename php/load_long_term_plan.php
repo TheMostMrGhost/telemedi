@@ -13,7 +13,13 @@ if (!isset($_SESSION['initial_stored'])) {
     $_SESSION['initial_stored'] = true;
 }
 
-$displayer = new Displayer('../images/left_pane','../images/right_pane');
+if (!isset($_SESSION['displayer'])) {
+  $displayer = new Displayer('../images/left_pane','../images/right_pane');
+  $_SESSION['displayer'] = $displayer;
+} else {
+  $displayer = $_SESSION['displayer'] ;
+}
+
 $template =  $displayer->prepare_base_frame();
 //
 // Replace placeholders in the main template

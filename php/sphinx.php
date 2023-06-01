@@ -50,22 +50,19 @@ class Sphinx {
 
         echo "<div class='sphinx-text'>";
         echo <<<EOT
-            Before we proceed with your studies, I need to ask you the following questions.
-            They will help me pick a learning path that is optimal for you, so try to be as verbose and precise as you can.
-            There are no bad answers, so do not worry, I will not eat you. For now at least...
+            Before we venture deeper into the realm of knowledge, I shall pose unto you a series of inquiries. These queries shall aid me in discerning the most fitting path for your scholarly pursuits. I beseech you to expound upon your responses, providing both detail and clarity. Fear not, for there exists no wrong answers within this domain, and I assure you that my hunger is not inclined to be sated by your being... at least not in the present moment.
         EOT;
         echo "</div>";
 
-// echo "<form action='./initial_questions_answer.php' method='post'>";
-// echo "<ol>";
 
         for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
             $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii]);
             $inputName = 'answer_' . $ii;
             // echo "<li>";
+            echo "<br>";
             echo "<label for='$inputName'><div class='sphinx-text' style='font-style: italic;'>".($ii + 1). "). $question:</div></label><br>";
             // echo "</li>";
-            echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Enter your answer here'></textarea>";
+            echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Enter your answer here'></textarea><br><br>";
 
         }
 
@@ -84,7 +81,7 @@ class Sphinx {
       );
 
       echo "<div class='sphinx-text'>";
-      echo $gpt_output . "\n"; // TODO USE DISPLAYER
+      echo $gpt_output . "\n"; 
       echo "</div>";
       $content = ob_get_clean(); // Get the buffered content and clean the buffer
       $this->plans[$plan_duration] = $content;

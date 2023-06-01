@@ -6,16 +6,25 @@ require_once "./displayer.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
 $sphinx->update_gpt_state($_POST['next_page']);
-$displayer = new Displayer('../images/left_pane','../images/right_pane');
+
+if (!isset($_SESSION['displayer'])) {
+  $displayer = new Displayer('../images/left_pane','../images/right_pane');
+  $_SESSION['displayer'] = $displayer;
+} else {
+  $displayer = $_SESSION['displayer'] ;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['next_page'])) {
+    $sphinx->update_gpt_state($_POST['next_page']);
+  }
+}
+
 // Load the main template file
 $template = $displayer->prepare_base_frame();
 
 // Replace placeholders in the main template
 $subpage = file_get_contents('summary_page.php');
-
-// Replace placeholders in the subpage template
-$subpageTitle = 'SUMMARY Title';
-$subpageContent = '<p>This is the content of the subpage.</p>';
 
 // Replace placeholders in the subpage template with specific content
 $subpage = str_replace('{{SUBPAGE_TITLE}}', "Plan overview", $subpage);

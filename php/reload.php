@@ -4,6 +4,7 @@ require_once "./sphinx.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
 
+// echo "nic";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['modification-message'], $_POST['script_to_reload'])) {
     // Get the values from the form

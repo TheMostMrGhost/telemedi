@@ -1,19 +1,20 @@
 <div class="sphinx-text">
-Hi, glad to see you!
-I'm Sphinx, your private guide to knowledge and wisdom. 
-Before we preceed, tell me about yourself
-</div>
-<!-- <form action="php/sphinx_dialog.php" method="post"> -->
-<form action="load_initial_questions.php" method="post">
+Greetings, young seeker of truth!
 
-<!-- <div class="user-text"> -->
-  <label for="about-yourself"><h3>Tell me about yourself:</h3></label><br>
-  <textarea class="user-text" id="about-yourself" name="about-yourself" placeholder="Enter your answer here"></textarea><br>
-<!-- </div> -->
+I am the mighty Sphinx, the guardian of enigmas and the revealer of wisdom. 
+It is an honor to encounter someone as curious and courageous as you on your quest for knowledge.
+
+Within the depths of my ancient knowledge, I hold the answers to the riddles that stir your mind. 
+Ask, and I shall share with you the secrets that lie dormant in the realm of wisdom. 
+Together, let us embark on a journey of discovery and unravel the mysteries that await us.
+</div>
+<form action="load_initial_questions.php" method="post">
 
   <label for="field-knowledge"><h3>What would you like to learn about?</h3></label><br>
   <textarea class="user-text" id="field-knowledge" name="field-knowledge" placeholder="Enter your answer here"></textarea><br>
 
-<input type="submit" name="Submit" value="Submit">
+  <label for="about-yourself"><h3>Before we begin our journey, tell me about yourself:</h3></label><br>
+  <textarea class="user-text" id="about-yourself" name="about-yourself" placeholder="Enter your answer here"></textarea><br>
+
+<input type="submit" name="Submit" value="Start the journey">
 </form>
-<!-- Don't worry, regardless of the answer, I won't eat you! At least for now... -->

@@ -5,11 +5,24 @@ require_once "./sphinx.php";
 require_once "./displayer.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
-$displayer = new Displayer('../images/left_pane','../images/right_pane');
+
+if (!isset($_SESSION['displayer'])) {
+  $displayer = new Displayer('../images/left_pane','../images/right_pane');
+  $_SESSION['displayer'] = $displayer;
+} else {
+  $displayer = $_SESSION['displayer'] ;
+}
+
+// $displayer = new Displayer('../images/left_pane','../images/right_pane');
 // Load the main template file
 $template = $displayer->prepare_base_frame();
 
-$sphinx->update_gpt_state($_POST['next_page']);
+// Load only when we first enter this page i.e. through "Next" on the previous page
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['next_page'])) {
+    $sphinx->update_gpt_state($_POST['next_page']);
+  }
+}
 
 // Replace placeholders in the main template
 $subpage = file_get_contents('content.php');

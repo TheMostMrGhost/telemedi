@@ -76,7 +76,7 @@ class Displayer {
   public function prepare_base_frame() : string {
     
     if (isset($this->base_layout)) {
-    return $this->base_layout;
+      return $this->base_layout;
     }
 
     require_once "./sphinx.php";
@@ -90,8 +90,6 @@ class Displayer {
         $_SESSION['initial_stored'] = true;
     }
 
-    // $displayer = new Displayer('../images/left_pane','../images/right_pane');
-    // $displayer = new Displayer('../images','../images/');
     // Load the main template file
     $template = file_get_contents('base.php');
 
@@ -103,7 +101,7 @@ class Displayer {
 
     $this->base_layout = $template;
     return $template;
-    }
+  }
 }
 
 ?>
