@@ -8,10 +8,13 @@
     <input type="hidden" name="next_page" value="{{NEXT PAGE}}">
     <button type="submit">Next</button>
   </form>
+
+<div style="margin-bottom: 60px;"></div> <!-- Add spacing here -->
+  <hr>
   <form action="./reload.php" method="post">
-    <label for="modification-message">Did you forget about something or are unsatisfied with current answer? Tell me about it!</label><br>
+    <label for="modification-message"><h2>Did you forget about something or are unsatisfied with current answer? Tell me about it!</h2></label><br>
     <input type="hidden" name="script_to_reload" value="{{CURRENT SCRIPT}}">
-    <textarea id="modification-message" name="modification-message" ></textarea><br>
+    <textarea class="user-text" id="modification-message" name="modification-message" ></textarea><br>
     <button type="submit">Reapply</button>
   </form>
 </section>
