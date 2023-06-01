@@ -5,6 +5,13 @@ require_once "./sphinx.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
 
+if (!isset($_SESSION['initial_stored'])) {
+    // Execute the code block only for the first-time load
+    $sphinx->store_initial_questions();
+    // Set the variable indicating the first-time load in the session
+    $_SESSION['initial_stored'] = true;
+}
+
 // Load the main template file
 $template = file_get_contents('base.php');
 
@@ -14,7 +21,7 @@ $header = 'Welcome to My Website';
 $subpage = file_get_contents('content.php');
 
 // Replace placeholders in the subpage template
-$subpageTitle = 'LOND Title';
+$subpageTitle = 'Long-term plan proposition';
 // $subpageTitle = $sphinx->thank_for_answering();
 $subpageContent = '<p>This is the content of the subpage.</p>';
 

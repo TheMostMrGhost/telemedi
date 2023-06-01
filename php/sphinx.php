@@ -54,14 +54,20 @@ class Sphinx {
             There are no bad answers, so do not worry, I will not eat you. For now at least...
         EOT;
 
-    echo "<ol>";
+// echo "<form action='./initial_questions_answer.php' method='post'>";
+echo "<ol>";
 
-    for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
-        $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii]);
-        echo "<li>$question</li>";
-    }
+for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
+    $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii]);
+    $inputName = 'answer_' . $ii;
+    echo "<li>";
+    echo "<label for='$inputName'>$question:</label><br>";
+    echo "<input type='text' id='$inputName' name='$inputName'><br><br>";
+    echo "</li>";
+}
 
-    echo "</ol>";
+echo "</ol>";
+// echo "</form>";
 
         // echo "<button type='submit'>Submit</button>";
         // echo "</form>";
@@ -116,6 +122,7 @@ class Sphinx {
     public function update_gpt_state(string &$text) : void{
     // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
     // For now not implemented, since I do not have API
+    echo $text;
     }
 
     private function prompt_gpt(string &$text, string &$state_prompt = null) : string {

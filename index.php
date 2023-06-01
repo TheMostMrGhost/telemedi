@@ -7,7 +7,7 @@ if (!empty(session_id())) {
 }
 
 require_once "./php/sphinx.php";
-// session_start();
+session_start();
 if (!isset($_SESSION['sphinx'])) {
   $sphinx = new Sphinx('John', 25, "./prompts/questions.json");
   $_SESSION['sphinx'] = $sphinx;
@@ -22,14 +22,10 @@ $template = file_get_contents('./php/base.php');
 $title = 'My Page Title';
 $header = 'Welcome to My Website';
 $subpage = file_get_contents('./php/index_page.php');
+// All but this file are in ./php folder, so path changes are necessary only here
 $template = str_replace('../css/style.css', "./css/style.css", $template);
 $template = str_replace('../index.php', "./index.php", $template);
 
-// // Replace placeholders in the subpage template
-// $subpageTitle = 'LOND Title';
-// // $subpageTitle = $sphinx->thank_for_answering();
-// $subpageContent = '<p>This is the content of the subpage.</p>';
-//
 // // Replace placeholders in the subpage template with specific content
 $subpage = str_replace('{{ACTION SCRIPT}}', "./php/load_initial_questions.php", $subpage);
 // $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);

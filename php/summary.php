@@ -22,7 +22,8 @@ $subpageContent = '<p>This is the content of the subpage.</p>';
             // ."<br>".$sphinx->show_summary('middle_term_plan')
             // ."<br>".$sphinx->show_summary('short_term_plan')
             // ."<br>If you need help, I'm here!";
-// $subpage = str_replace('{{SUBPAGE_CONTENT}}', $summary, $subpage);
+$subpage = str_replace('{{SUBPAGE_TITLE}}', "Plan overview", $subpage);
+$subpage = str_replace('{{SUBPAGE_CONTENT}}', "", $subpage);
         
 $subpage = str_replace('{{LONG TERM PLAN}}', $sphinx->show_summary('long_term_plan'), $subpage);
 $subpage = str_replace('{{MIDDLE TERM PLAN}}', $sphinx->show_summary('middle_term_plan'), $subpage);

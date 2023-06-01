@@ -5,6 +5,8 @@ require_once "./sphinx.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
 // $sphinx->store_initial_questions();
+// // should NOT update, since on "Next" everything is okay
+// $sphinx->update_gpt_state($info_for_GPT);
 
 // Load the main template file
 $template = file_get_contents('base.php');
@@ -15,7 +17,7 @@ $header = 'Welcome to My Website';
 $subpage = file_get_contents('content.php');
 
 // Replace placeholders in the subpage template
-$subpageTitle = 'MIDDLE Title';
+$subpageTitle = 'Middle-term plan';
 $subpageContent = '<p>This is the content of the subpage.</p>';
 
 // Replace placeholders in the subpage template with specific content
