@@ -25,6 +25,8 @@ $subpage = file_get_contents('./php/index_page.php');
 // All but this file are in ./php folder, so path changes are necessary only here
 $template = str_replace('../css/style.css', "./css/style.css", $template);
 $template = str_replace('../index.php', "./index.php", $template);
+$template = str_replace('../images/sphinx.png', "./images/sphinx.png", $template);
+
 
 // // Replace placeholders in the subpage template with specific content
 $subpage = str_replace('{{ACTION SCRIPT}}', "./php/load_initial_questions.php", $subpage);

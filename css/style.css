@@ -6,9 +6,12 @@
   --soft-black-gray: #666666;
   --background-color:   #F4DECB;
   --bg0: #F3EAD3;
-  --bg1: #f6d7b0;
-  --bg2: 	#e1bf92;
+  --bg2: #f6d7b0;
+  --bg3: 	#e1bf92;
+  --bg4: 	#c1a082;
+  --bg1: 	#FFFBEF;
   --fg: #5C6A72;
+  --fg2: #999999;
   --yellow: #DFA000;
   --blue: #3A94C5;
   --purple: #DF69BA;
@@ -18,7 +21,7 @@
 html, body {
   height: 100%; /* Ensure full height */
   margin: 0; /* Remove default margin */
-  background-color: var(--bg1);
+  background-color: var(--bg3);
 }
 * {
   box-sizing: border-box;
@@ -49,7 +52,8 @@ body {
   display: grid;
   grid-template-rows: 70px auto 70px;
   grid-template-areas: 
-    'header header header header header header' 
+    'logo navig navig navig navig log-in'
+    /* 'header header header header header header'  */
     'left middle middle middle middle right' 
     'footer footer footer footer footer footer';
   /* grid-column-gap: 10px; - if you want gap between the columns */
@@ -70,10 +74,8 @@ body {
   background-color: pink;
 }
 .left, .right {
-  /* border-top: 1px solid #aaa; */
-  /* border-bottom: 1px solid #aaa; */
   padding: 20px;
-  background-color: var(--bg0);
+  background-color: var(--bg2);
   background-size: 40px 100%;
   margin-right: 0;
   margin-left: 0;
@@ -83,16 +85,18 @@ body {
 }
 
 .left {
-  background-image: linear-gradient(to right, red, 3px, transparent 8px);
+  /* background-image: linear-gradient(to right, transparent 1px,var(--fg), 50px, transparent 1px); */
+
+  background-image: linear-gradient(to right, transparent, var(--fg2) 10px, transparent 3px);
 }
 .right {
-  background-image: linear-gradient(to left, red, 3px, transparent 1px);
+  background-image: linear-gradient(to left, transparent, var(--fg2) 10px, transparent 3px);
 }
 
 .sphinx-text {
-  background-color: green;
+  background-color: var(--bg2);
+  border: 3px solid var(--bg3);
   border-radius: 10px 10px 10px 0;
-  border: 3px solid red;
   /* border-width: 2px; */
   /* border-color: red; */
   padding: 10px;
@@ -100,13 +104,14 @@ body {
 
 
 .user-text {
-  background-color: blue;
+  background-color: var(--bg2);
   border-radius: 10px 10px 0 10px;
-  border: 3px solid red;
+  border: 3px solid var(--blue);
   /* text-align: right; */
   width: 100%;
   min-height: 130px;
-  color: var(--yellow);
+  color: var(--blue);
+  font-size: 13pt;
   /* border-width: 2px; */
   /* border-color: red; */
   padding: 10px;
@@ -148,8 +153,9 @@ body {
 .navig,
 .logo, 
 .log-in{
-  background-color: var(--bg2);
+  background-color: var(--bg4);
   color: var(--yellow);
+  /* border: 1px solid black; */
 
 }
 /* Style the footer */
@@ -160,15 +166,51 @@ body {
   text-align: center;
 }
 
-.navig {
+.navig, 
+.log-in
+{
   grid-area: navig;
-  /* background-color: #31f1f1; */
+  display: flex;
+  padding-right: 10px;
+  padding-left: 10px;
+  
+  align-items: center;
+  text-align: center;
 }
+.navig > * ,
+.log-in > * 
+{
+  margin-right: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.navig > a,
+.log-in > a {
+  text-decoration: none;
+  color: var(--blue);
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  text-align: center;
+}
+
+.navig > a:hover,
+.log-in > a:hover {
+  color: var(--purple);
+}
+
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+
+
+
 
 .logo {
   grid-area: logo;
-  /* background-color: #31f151; */
-  /* background-color: var(--accent-color); */
+  padding: 5px;
 }
 
 .log-in {
@@ -183,7 +225,7 @@ body {
     height: 100%;
     grid-template-rows: 70px 1fr 1fr 1fr 70px;
     grid-template-areas: 
-      'header header header header header header' 
+    'logo navig navig navig navig log-in'
       'left left left left left left' 
       'middle middle middle middle middle middle' 
       'right right right right right right' 
@@ -193,9 +235,9 @@ body {
 
 
 h1, h2, h3 {
-  background-color: var(--secondary-color);
-  color: var(--accent-color);
-  text-align: center;
+  /* background-color: var(--secondary-color); */
+  color: var(--yellow);
+  /* text-align: center; */
   padding: 0;
   margin: 0;
 }
@@ -204,10 +246,23 @@ button,
 input[type="submit"]
 {
   font-size: 20px;
-  border: 3px solid var(--fg);
+  border: none;
+  padding: 10px;
   background-color:var(--fg);
   border-radius: 10px;
   /* background-color: transparent; */
   color: gold;
   font-family: "Times New Roman", sans-serif;
 }
+
+button:hover,
+input[type="submit"]:hover
+{
+  border: none;
+  background-color:var(--purple);
+  border-radius: 10px;
+  /* background-color: transparent; */
+  color: gold;
+  font-family: "Times New Roman", sans-serif;
+}
+

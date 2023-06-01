@@ -8,9 +8,12 @@
   <body>
 
     <div class="grid-container">
-      <div class="header">
+      <!-- <div class="header"> -->
         <!-- <h2>Header</h2> -->
-        <div class="logo">LOGO</div>
+        <div class="logo">
+          <img src="../images/sphinx.png" alt="Logo" width="60" height="auto">
+
+        </div>
         <div class="navig">
           <a href="../index.php">Home</a>
           <a href="">About us</a>
@@ -21,7 +24,7 @@
           <button>Sign In</button> 
           <button>Log In</button>
         </div>
-      </div>
+      <!-- </div> -->
 
       <div class="left">
 
