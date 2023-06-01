@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
   </head>
   <body>
 
@@ -22,11 +23,16 @@
         </div>
       </div>
 
-      <div class="left" style="background-color:#aaa;">{{LEFT PANE}}</div>
-      <div class="middle" style="background-color:#bbb;">
+      <div class="left">
+
+      <!-- <div class="column-base-top"></div> -->
+{{LEFT PANE}}
+      <!-- <div class="column-base-top"></div> -->
+</div>
+      <div class="middle">
         {{MIDDLE PAGE}}
       </div>  
-      <div class="right" style="background-color:#ccc;">{{RIGHT PANE}}</div>
+      <div class="right" >{{RIGHT PANE}}</div>
 
       <div class="footer">
         <p>{{FOOTER}}</p>
