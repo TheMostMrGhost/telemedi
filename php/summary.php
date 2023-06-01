@@ -2,8 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 require_once "./sphinx.php";
+require_once "./displayer.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
+$displayer = new Displayer('../images/left_pane','../images/right_pane');
 // Load the main template file
 $template = file_get_contents('base.php');
 
@@ -33,6 +35,8 @@ $subpage = str_replace('{{SHORT TERM PLAN}}', $sphinx->show_summary('short_term_
 $template = str_replace('{{TITLE}}', $title, $template);
 $template = str_replace('{{HEADER}}', $header, $template);
 $template = str_replace('{{MIDDLE PAGE}}', $subpage, $template);
+$template = str_replace('{{LEFT PANE}}', $displayer->give_left_pane(), $template);
+$template = str_replace('{{RIGHT PANE}}', $displayer->give_right_pane(), $template);
 // and here a plan for each week
 
 // Output the final HTML

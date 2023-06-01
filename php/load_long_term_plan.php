@@ -42,6 +42,7 @@ $template = str_replace('{{HEADER}}', $header, $template);
 $template = str_replace('{{MIDDLE PAGE}}', $subpage, $template);
 $template = str_replace('{{LEFT PANE}}', $displayer->give_left_pane(), $template);
 $template = str_replace('{{RIGHT PANE}}', $displayer->give_right_pane(), $template);
+$template = str_replace('{{FOOTER}}', $displayer->create_footer(), $template);
 
 // Output the final HTML
 echo $template;

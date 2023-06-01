@@ -8,11 +8,11 @@ Before we preceed, tell me about yourself
 
 <!-- <div class="user-text"> -->
   <label for="about-yourself"><h3>Tell me about yourself:</h3></label><br>
-  <textarea class="user-text" id="about-yourself" name="about-yourself" placeholder="Write anything you want to tell me..."></textarea><br>
+  <textarea class="user-text" id="about-yourself" name="about-yourself" placeholder="Write your answer here"></textarea><br>
 <!-- </div> -->
 
   <label for="field-knowledge"><h3>What would you like to learn about?</h3></label><br>
-  <textarea class="user-text" id="field-knowledge" name="field-knowledge" placeholder="Music, statictis, maybe quantum chemistry?"></textarea><br>
+  <textarea class="user-text" id="field-knowledge" name="field-knowledge" placeholder="Write your answer here"></textarea><br>
 
 <input type="submit" name="Submit" value="Submit">
 </form>

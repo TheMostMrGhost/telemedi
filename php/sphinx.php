@@ -65,7 +65,7 @@ class Sphinx {
             // echo "<li>";
             echo "<label for='$inputName'><div class='sphinx-text' style='font-style: italic;'>".($ii + 1). "). $question:</div></label><br>";
             // echo "</li>";
-            echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName'></textarea>";
+            echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Write your answer here'></textarea>";
 
         }
 

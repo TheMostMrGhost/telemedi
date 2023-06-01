@@ -186,6 +186,9 @@ body {
 }
 /* Style the footer */
 .footer {
+  display: flex;
+  justify-content: center;
+  font-size: 15pt;
   grid-area: footer;
   /* background-color: #f1f1f1; */
   padding: 10px;
@@ -319,4 +322,23 @@ input[type="submit"]:hover
 }
 
 
+
+.social-icons .icon {
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: var(--blue);
+  background-color: transparent;
+  border: none;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  font-style:initial;
+  text-align: center;
+}
 

@@ -14,7 +14,7 @@
   <form action="./reload.php" method="post">
     <label for="modification-message"><h2>Did you forget about something or are unsatisfied with current answer? Tell me about it!</h2></label><br>
     <input type="hidden" name="script_to_reload" value="{{CURRENT SCRIPT}}">
-    <textarea class="user-text" id="modification-message" name="modification-message" ></textarea><br>
+    <textarea class="user-text" id="modification-message" name="modification-message" placeholder='Write your answer here'></textarea><br>
     <button type="submit">Reapply</button>
   </form>
 </section>

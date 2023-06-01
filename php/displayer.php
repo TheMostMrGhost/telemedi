@@ -1,6 +1,5 @@
 <?php 
 declare(strict_types=1);
-// session_start();
 
 class Displayer {
     // A class that is responsible for displaying left and right pane
@@ -13,9 +12,7 @@ class Displayer {
     }
 
     public function give_left_pane() : string {
-
-      $result = "<div class='column-base-top'>You may also like</div><div class='card-gallery'>";
-
+      $result = "<div class='column-base-top'>Recomended topics</div><div class='card-gallery'>";
 
       // Get all file names in the directory
       $fileNames = scandir($this->left_pane_dir);
@@ -25,7 +22,7 @@ class Displayer {
 
       // Display the file names
       foreach ($fileNames as $fileName) {
-       $result .=  $this->create_card($this->left_pane_dir."/".$fileName, "Sample text");
+       $result .=  $this->create_card($this->left_pane_dir."/".$fileName, pathinfo($fileName, PATHINFO_FILENAME));
       }
       $result .="</div>";
 
@@ -33,8 +30,7 @@ class Displayer {
     }
 
     public function give_right_pane() : string {
-
-      $result = "";
+      $result = "<div class='column-base-top'>You may also like</div><div class='card-gallery'>";
 
       // Get all file names in the directory
       $fileNames = scandir($this->right_pane_dir);
@@ -44,9 +40,9 @@ class Displayer {
 
       // Display the file names
       foreach ($fileNames as $fileName) {
-       $result .=  "<div class='column-base-top'>You may also like</div><div class='card-gallery'>"
-          .$this->create_card($this->left_pane_dir."/".$fileName, "Sample text")."</div>";
+       $result .=  $this->create_card($this->right_pane_dir."/".$fileName, pathinfo($fileName, PATHINFO_FILENAME));
       }
+      $result .="</div>";
 
        return $result;
     }
@@ -64,6 +60,17 @@ class Displayer {
 
       return ob_get_clean(); // Get the buffered content and clean the buffer
     }
+
+    public function create_footer() :string{
+      ob_start();
+      echo "<b>Follow us:</b>";
+      echo "<nav class='social-icons'>";
+      echo "<a href='https://www.facebook.com/' class='icon'><i class='fab fa-facebook-f'></i></a>";
+      echo "<a href='https://www.twitter.com/' class='icon'><i class='fab fa-twitter'></i></a>";
+      echo "<a href='https://www.instagram.com/' class='icon'><i class='fab fa-instagram'></i></a>";
+      echo "</nav>";
+      return ob_get_clean(); // Get the buffered content and clean the buffer
+  }
 }
 
 ?>
