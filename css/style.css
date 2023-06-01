@@ -17,6 +17,51 @@
   --purple: #DF69BA;
 }
 
+.card {
+  /* width: 80%; */
+  margin: 10px;
+  border: 0px solid grey;
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 50px;
+  grid-template-areas:
+  "picture"
+  "description";
+  width: 180px;
+  height: 130px;
+  background-color: grey;
+}
+
+.card .picture {
+  background-color: grey;
+  grid-area: picture;
+  /* max-width: 150px; */
+  width: 180px;
+  height: 100px;
+}
+          /* <img src="../images/sphinx.png" alt="Logo" width="60" height="auto"> */
+
+.card .picture img {
+  max-width: 100%;
+}
+
+.card .description {
+  grid-area: description;
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card-gallery {
+  display: flex;
+  flex-direction: column;
+  /* justify-items: center; */
+  justify-content: center;
+  /* flex-wrap: wrap; */
+  overflow: auto; /* Enable scrolling */
+}
 
 html, body {
   height: 100%; /* Ensure full height */
@@ -60,12 +105,14 @@ body {
   background-color: pink;
 }
 .left, .right {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   background-color: var(--bg2);
   background-size: 40px 100%;
   margin-right: 0;
   margin-left: 0;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* margin-bottom: -200px; */
   padding: 0;
 }
@@ -140,7 +187,7 @@ body {
 .logo, 
 .log-in{
   background-color: var(--bg4);
-  color: var(--yellow);
+  color: var(--blue);
   /* border: 1px solid black; */
 
 }
@@ -161,8 +208,15 @@ body {
   padding-left: 10px;
   
   align-items: center;
+  justify-items: center;
   text-align: center;
 }
+
+.logo > h2 {
+  font-size: 30pt;
+  color: var(--blue);
+}
+
 .navig > * ,
 .log-in > * 
 {
@@ -177,7 +231,9 @@ body {
   color: var(--blue);
   background-color: transparent;
   border: none;
-  font-size: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  font-style:initial;
   text-align: center;
 }
 
@@ -195,8 +251,11 @@ a:hover {
 
 .logo {
   grid-area: logo;
+  display: flex;
+  align-items: center;
   padding: 5px;
 }
+
 
 .log-in {
   grid-area: log-in;
@@ -205,6 +264,10 @@ a:hover {
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
+
+  .card-gallery {
+      flex-direction: row;
+    }
   .grid-container  {
 
     height: 100%;
@@ -253,4 +316,12 @@ input[type="submit"]:hover
   color: gold;
   font-family: "Times New Roman", sans-serif;
 }
+
+.column-base-top {
+  background-color: var(--bg3);
+  text-align: center;
+  padding: 10px;
+}
+
+
 
