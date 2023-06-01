@@ -5,6 +5,7 @@ class Displayer {
     // A class that is responsible for displaying left and right pane
     private string $left_pane_dir;
     private string $right_pane_dir;
+    private string $base_layout;
 
     public function __construct(string $left_pane_dir, string $right_pane_dir) {
       $this->left_pane_dir = $left_pane_dir;
@@ -71,6 +72,38 @@ class Displayer {
       echo "</nav>";
       return ob_get_clean(); // Get the buffered content and clean the buffer
   }
+
+  public function prepare_base_frame() : string {
+    
+    if (isset($this->base_layout)) {
+    return $this->base_layout;
+    }
+
+    require_once "./sphinx.php";
+    // session_start();
+    $sphinx = $_SESSION['sphinx'];
+
+    if (!isset($_SESSION['initial_stored'])) {
+        // Execute the code block only for the first-time load
+        $sphinx->store_initial_questions();
+        // Set the variable indicating the first-time load in the session
+        $_SESSION['initial_stored'] = true;
+    }
+
+    // $displayer = new Displayer('../images/left_pane','../images/right_pane');
+    // $displayer = new Displayer('../images','../images/');
+    // Load the main template file
+    $template = file_get_contents('base.php');
+
+    $template = str_replace('{{LEFT PANE}}', $this->give_left_pane(), $template);
+    $template = str_replace('{{RIGHT PANE}}', $this->give_right_pane(), $template);
+    $template = str_replace('{{FOOTER}}', $this->create_footer(), $template);
+
+    // Output the final HTML
+
+    $this->base_layout = $template;
+    return $template;
+    }
 }
 
 ?>

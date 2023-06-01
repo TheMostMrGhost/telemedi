@@ -6,15 +6,14 @@ require_once "./displayer.php";
 session_start();
 
 if (!isset($_SESSION['sphinx'])) {
-  $sphinx = new Sphinx('John', 25, "../prompts/questions.json");
+  $sphinx = new Sphinx("../prompts/questions.json");
   $_SESSION['sphinx'] = $sphinx;
 } else {
   $sphinx = $_SESSION['sphinx'] ;
 }
-$displayer = new Displayer('../images/left_pane','../images/right_pane');
-
 // Load the main template file
-$template = file_get_contents('base.php');
+$displayer = new Displayer('../images/left_pane','../images/right_pane');
+$template = $displayer->prepare_base_frame();
 
 // Replace placeholders in the main template
 $subpage = file_get_contents('plain_main.php');

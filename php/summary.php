@@ -5,13 +5,12 @@ require_once "./sphinx.php";
 require_once "./displayer.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
+$sphinx->update_gpt_state($_POST['next_page']);
 $displayer = new Displayer('../images/left_pane','../images/right_pane');
 // Load the main template file
-$template = file_get_contents('base.php');
+$template = $displayer->prepare_base_frame();
 
 // Replace placeholders in the main template
-$title = 'My Page Title';
-$header = 'Welcome to My Website';
 $subpage = file_get_contents('summary_page.php');
 
 // Replace placeholders in the subpage template
@@ -19,11 +18,6 @@ $subpageTitle = 'SUMMARY Title';
 $subpageContent = '<p>This is the content of the subpage.</p>';
 
 // Replace placeholders in the subpage template with specific content
-// $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);
-// $summary = "Summary:<br>".
-            // ."<br>".$sphinx->show_summary('middle_term_plan')
-            // ."<br>".$sphinx->show_summary('short_term_plan')
-            // ."<br>If you need help, I'm here!";
 $subpage = str_replace('{{SUBPAGE_TITLE}}', "Plan overview", $subpage);
 $subpage = str_replace('{{SUBPAGE_CONTENT}}', "", $subpage);
         
@@ -32,16 +26,11 @@ $subpage = str_replace('{{MIDDLE TERM PLAN}}', $sphinx->show_summary('middle_ter
 $subpage = str_replace('{{SHORT TERM PLAN}}', $sphinx->show_summary('short_term_plan'), $subpage);
 
 // Replace placeholders in the main template with the subpage content
-$template = str_replace('{{TITLE}}', $title, $template);
-$template = str_replace('{{HEADER}}', $header, $template);
 $template = str_replace('{{MIDDLE PAGE}}', $subpage, $template);
 $template = str_replace('{{LEFT PANE}}', $displayer->give_left_pane(), $template);
 $template = str_replace('{{RIGHT PANE}}', $displayer->give_right_pane(), $template);
-// and here a plan for each week
 
 // Output the final HTML
 echo $template;
-// session_unset();
-// session_destroy();
 ?>
 

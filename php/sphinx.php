@@ -10,7 +10,7 @@ class Sphinx {
     private array $answers;
     private array $plans;
 
-    public function __construct(string $name, int $age, string $question_path = "./prompts/questions.json") {
+    public function __construct(string $question_path = "./prompts/questions.json") {
       $this->question_path = $question_path;
       $this->plans = array();
       $this->load_json($this->question_path);
@@ -65,7 +65,7 @@ class Sphinx {
             // echo "<li>";
             echo "<label for='$inputName'><div class='sphinx-text' style='font-style: italic;'>".($ii + 1). "). $question:</div></label><br>";
             // echo "</li>";
-            echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Write your answer here'></textarea>";
+            echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Enter your answer here'></textarea>";
 
         }
 
@@ -98,7 +98,6 @@ class Sphinx {
 
 
     public function store_initial_questions() : void {
-// echo "STORED";
       $info_for_GPT = "User answers:\n";
 
       for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
@@ -112,7 +111,6 @@ class Sphinx {
           $info_for_GPT .= "\n";
       }
 
-      // echo $info_for_GPT;
       $this->update_gpt_state($info_for_GPT);
     }
 
@@ -121,7 +119,7 @@ class Sphinx {
     public function update_gpt_state(string &$text) : void{
     // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
     // For now not implemented, since I do not have API
-    echo $text;
+    // echo $text;
     }
 
     private function prompt_gpt(string &$text, string &$state_prompt = null) : string {
