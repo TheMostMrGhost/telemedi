@@ -30,7 +30,7 @@ class Sphinx {
       $this->questions = json_decode($jsonData, true);
     }
 
-    public function check_json() :void {
+    public function check_json() : void{
       echo "Checking <br>";
       foreach ($this->questions as $key => $value) {
           echo $key . ': ' . $value . '<br>';
@@ -38,11 +38,12 @@ class Sphinx {
 
       foreach ($this->questions['initial_questions'] as $key => $value) {
           echo $key . ': ' . $value . '<br>';
-      }}
+      }
+    }
 
-    public function thank_for_answering() : void {
+    public function thank_for_answering() : string {
       static $thanks = "By providing your answers to these eight questions, I'll be able to gather the necessary information to create a tailored and perfect learning plan for the subject of your choice.";
-      echo $thanks;
+      return $thanks;
     }
 
     public function ask_initial_questions() : void {
@@ -72,16 +73,12 @@ class Sphinx {
     }
 
     public function propose_plan(string $plan_duration) : void{ // long, middle, short term
-      // TODO change to enum
-      // $gpt_output = $this->prompt_gpt(
-      //     $this->questions[$plan_duration]['tasks'],
-      //     implode("\n",$this->questions[$plan_duration]['templates']) // Concat into one, context-like variable
-      //   );
-$templates = implode("\n", $this->questions[$plan_duration]['templates']);
-$gpt_output = $this->prompt_gpt(
-    $this->questions[$plan_duration]['tasks'],
-    $templates
-);
+      $templates = implode("\n", $this->questions[$plan_duration]['templates']);
+      $gpt_output = $this->prompt_gpt(
+          $this->questions[$plan_duration]['tasks'],
+          $templates
+      );
+
       echo $gpt_output . "\n"; // TODO USE DISPLAYER
 
       switch ($plan_duration) {
@@ -108,7 +105,7 @@ $gpt_output = $this->prompt_gpt(
     }
 
 
-    public function store_initial_questions() : void{
+    public function store_initial_questions() : void {
 // echo "STORED";
       $info_for_GPT = "User answers:\n";
 

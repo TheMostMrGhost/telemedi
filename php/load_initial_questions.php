@@ -14,6 +14,7 @@ $subpageContent = '<p>This is the content of the subpage.</p>';
 // Replace placeholders in the subpage template with specific content
 $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);
 $subpage = str_replace('{{ACTION SCRIPT}}', "./load_long_term_plan.php", $subpage);
+$subpage = str_replace('{{CURRENT SCRIPT}}', "./load_initial_questions.php", $subpage);
 // $subpage = str_replace('{{SUBPAGE_CONTENT}}', $subpageContent, $subpage);
 
 // Replace placeholders in the main template with the subpage content
