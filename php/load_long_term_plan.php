@@ -22,7 +22,9 @@ $subpageContent = '<p>This is the content of the subpage.</p>';
 $subpage = str_replace('{{ACTION SCRIPT}}', "./load_middle_term_plan.php", $subpage);
 $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);
 $subpage = str_replace('{{CURRENT SCRIPT}}', "./load_long_term_plan.php", $subpage);
-// $subpage = str_replace('{{SUBPAGE_CONTENT}}', $subpageContent, $subpage);
+
+    // public function propose_plan(string $plan_duration) : string{ // long, middle, short term
+$subpage = str_replace('{{SUBPAGE_CONTENT}}', $sphinx->propose_plan('long_term_plan'), $subpage);
 
 // Replace placeholders in the main template with the subpage content
 $template = str_replace('{{TITLE}}', $title, $template);

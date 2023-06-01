@@ -11,7 +11,7 @@
         <!-- <h2>Header</h2> -->
         <div class="logo">LOGO</div>
         <div class="navig">
-          <a href="">Home</a>
+          <a href="../index.php">Home</a>
           <a href="">About us</a>
         </div>
 

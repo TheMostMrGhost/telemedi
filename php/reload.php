@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Include or redirect to the next script based on $nextScript
 
     // Example: Including the next script
-    include $nextScript;
+    // include $nextScript;
 
     // Example: Redirecting to the next script
     header("Location: $nextScript");
@@ -28,18 +28,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 ?>
-
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!--   <title>Form Example</title> -->
-<!-- </head> -->
-<!-- <body> -->
-<!--   <form action="" method="post"> -->
-<!--     <label for="modification-message">Did you forget about something or are unsatisfied with the current answer? Tell me about it!</label><br> -->
-<!--     <input type="hidden" name="next-script" value="{{NEXT SCRIPT}}"> -->
-<!--     <textarea id="modification-message" name="modification-message"></textarea><br> -->
-<!--     <button type="submit">Reapply</button> -->
-<!--   </form> -->
-<!-- </body> -->
-<!-- </html> -->
