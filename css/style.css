@@ -20,8 +20,9 @@
 .card {
   /* width: 80%; */
   margin: 10px;
-  border: 0px solid grey;
+  border: none;
   border-radius: 10px;
+  border: 1pt solid black;
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 50px;
@@ -30,7 +31,7 @@
   "description";
   width: 180px;
   height: 130px;
-  background-color: grey;
+  background-color: var(--fg2);
 }
 
 .card .picture {
@@ -117,14 +118,6 @@ body {
   padding: 0;
 }
 
-.left {
-  /* background-image: linear-gradient(to right, transparent 1px,var(--fg), 50px, transparent 1px); */
-
-  background-image: linear-gradient(to right, transparent, var(--fg2) 10px, transparent 3px);
-}
-.right {
-  background-image: linear-gradient(to left, transparent, var(--fg2) 10px, transparent 3px);
-}
 
 .sphinx-text {
   background-color: var(--bg2);
@@ -318,9 +311,11 @@ input[type="submit"]:hover
 }
 
 .column-base-top {
+  /* background-image: linear-gradient(to bottom, var(--bg4), var(--bg2)); */
   background-color: var(--bg3);
   text-align: center;
   padding: 10px;
+  color: var(--blue);
 }
 
 

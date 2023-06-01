@@ -31,33 +31,7 @@
       <!-- </div> -->
 
       <div class="left">
-        <div class="column-base-top ">
-          Popular options
-        </div>
-        <div class="card-gallery">
-
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-        </div>
-        <!-- {{LEFT PANE}} -->
+        {{LEFT PANE}}
         <!-- <div class="column-base-top"></div> -->
       </div>
       <div class="middle">
@@ -67,40 +41,6 @@
 
 
       <div class="right" >
-        <div class="column-base-top ">
-          Recomendations
-        </div>
-        <div class="card-gallery">
-
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-          <div class="card">
-              <img src="../images/sphinx.png" alt="My Image" class="picture">
-
-            <div class="description">
-              {{species.name}}
-            </div>
-          </div>
-        </div>
         {{RIGHT PANE}}
       </div>
 

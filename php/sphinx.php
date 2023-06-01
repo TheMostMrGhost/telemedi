@@ -41,7 +41,7 @@ class Sphinx {
     }
 
     public function thank_for_answering() : string {
-      static $thanks = "By providing your answers to these eight questions, I'll be able to gather the necessary information to create a tailored and perfect learning plan for the subject of your choice.";
+      $thanks = "By providing your answers to these eight questions, I'll be able to gather the necessary information to create a tailored and perfect learning plan for the subject of your choice.";
       return $thanks;
     }
 
