@@ -15,7 +15,7 @@ $subpage = file_get_contents('content.php');
 
 // Replace placeholders in the subpage template
 $subpageTitle = 'LOND Title';
-$subpageTitle = $sphinx->thank_for_answering();
+// $subpageTitle = $sphinx->thank_for_answering();
 $subpageContent = '<p>This is the content of the subpage.</p>';
 
 // Replace placeholders in the subpage template with specific content

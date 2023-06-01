@@ -1,4 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+require_once "./sphinx.php";
+session_start();
+if (!isset($_SESSION['sphinx'])) {
+  $sphinx = new Sphinx('John', 25, 'London');
+  $_SESSION['sphinx'] = $sphinx;
+}
 // Load the main template file
 $template = file_get_contents('base.php');
 

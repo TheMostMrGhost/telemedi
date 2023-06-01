@@ -40,7 +40,6 @@ require_once "sphinx.php";
 
         <?php
         $sphinx = new Sphinx('John', 25, 'London');
-        $_SESSION['sphinx'] = $sphinx;
         $sphinx->greet();
         $sphinx->check_json();
 $sphinx->ask_initial_questions();
