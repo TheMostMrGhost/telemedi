@@ -23,11 +23,12 @@ class Displayer {
 
       // Display the file names
       foreach ($fileNames as $fileName) {
-       $result .=  $this->create_card($this->left_pane_dir."/".$fileName, pathinfo($fileName, PATHINFO_FILENAME));
+        $result .=  $this->create_card($this->left_pane_dir."/".$fileName, pathinfo($fileName, PATHINFO_FILENAME));
       }
+
       $result .="</div>";
 
-       return $result;
+      return $result;
     }
 
     public function give_right_pane() : string {
@@ -41,11 +42,12 @@ class Displayer {
 
       // Display the file names
       foreach ($fileNames as $fileName) {
-       $result .=  $this->create_card($this->right_pane_dir."/".$fileName, pathinfo($fileName, PATHINFO_FILENAME));
+        $result .=  $this->create_card($this->right_pane_dir."/".$fileName, pathinfo($fileName, PATHINFO_FILENAME));
       }
+
       $result .="</div>";
 
-       return $result;
+      return $result;
     }
 
     private function create_card(string $image_path, string $text) : string {
@@ -80,7 +82,6 @@ class Displayer {
     }
 
     require_once "./sphinx.php";
-    // session_start();
     $sphinx = $_SESSION['sphinx'];
 
     if (!isset($_SESSION['initial_stored'])) {

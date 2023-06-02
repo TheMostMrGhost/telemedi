@@ -4,7 +4,6 @@ require_once "./sphinx.php";
 session_start();
 $sphinx = $_SESSION['sphinx'];
 
-// echo "nic";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['modification-message'], $_POST['script_to_reload'])) {
     // Get the values from the form
@@ -19,10 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Load the next script using $nextScript
     // Include or redirect to the next script based on $nextScript
-
-    // Example: Including the next script
-    // include $nextScript;
-
     // Example: Redirecting to the next script
     header("Location: $nextScript");
     exit;

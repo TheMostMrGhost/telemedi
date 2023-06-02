@@ -13,11 +13,9 @@ if (!isset($_SESSION['displayer'])) {
   $displayer = $_SESSION['displayer'] ;
 }
 
-// $displayer = new Displayer('../images/left_pane','../images/right_pane');
 // Load the main template file
 $template = $displayer->prepare_base_frame();
 
-// $sphinx->update_gpt_state($_POST['next_page']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (isset($_POST['next_page'])) {
     $sphinx->update_gpt_state($_POST['next_page']);

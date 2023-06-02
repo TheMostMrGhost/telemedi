@@ -13,7 +13,6 @@ if (!isset($_SESSION['displayer'])) {
   $displayer = $_SESSION['displayer'] ;
 }
 
-// $displayer = new Displayer('../images/left_pane','../images/right_pane');
 // Load the main template file
 $template = $displayer->prepare_base_frame();
 

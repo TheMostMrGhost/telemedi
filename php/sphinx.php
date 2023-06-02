@@ -1,11 +1,10 @@
 <?php 
 declare(strict_types=1);
-// session_start();
 
 class Sphinx {
     private static $hello = "Welcome  young seeker of wisdom!I'm Sphinx and I will guide you during your journey!";
 
-    private string $question_path;// = "../prompts/questions.json";
+    private string $question_path;
     private array $questions;
     private array $answers;
     private array $plans;
@@ -55,10 +54,8 @@ class Sphinx {
             $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii], 
                             fallback_output: $this->questions['initial_questions']['templates'][$ii]);
             $inputName = 'answer_' . $ii;
-            // echo "<li>";
             echo "<br>";
             echo "<label for='$inputName'><div class='sphinx-text' style='font-style: italic;'>".($ii + 1). "). $question:</div></label><br>";
-            // echo "</li>";
             echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Enter your answer here'></textarea><br><br>";
 
         }
@@ -87,7 +84,7 @@ class Sphinx {
       return $content; // Return the concatenated string
     }
 
-    public function show_summary(string $plan_duration) : string { // long, middle, short term
+    public function show_summary(string $plan_duration) : string {
       return $this->plans[$plan_duration];
     }
 
@@ -112,16 +109,15 @@ class Sphinx {
 
 
     public function update_gpt_state(string &$text) : void{
-    // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
-    // For now not implemented, since I do not have API
-    // echo $text;
+      // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
+      // For now not implemented, since I do not have API
     }
 
     private function prompt_gpt(string &$text, string &$state_prompt = null, string &$fallback_output = "") : string {
-    // THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
-    // THIS FUNCTION IS ONLY FOR DEMONSTRATION PURPOSES, 
-    // 
-    // Wtih API this will send request to ChatGPT, but now it only output $text.
+      // THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
+      // THIS FUNCTION IS ONLY FOR DEMONSTRATION PURPOSES, 
+      // 
+      // Wtih API this will send request to ChatGPT, but now it only output $text.
       return nl2br($fallback_output);
     }
 
