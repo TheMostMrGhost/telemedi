@@ -19,6 +19,17 @@ if (!isset($_SESSION['displayer'])) {
   $displayer = $_SESSION['displayer'] ;
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['field-knowledge'])) {
+    $sphinx->update_gpt_state($_POST['field-knowledge']);
+  }
+
+  if (isset($_POST['about-yourself'])) {
+    $sphinx->update_gpt_state($_POST['about-yourself']);
+  }
+}
+
+
 // Load the main template file
 $template = $displayer->prepare_base_frame();
 
