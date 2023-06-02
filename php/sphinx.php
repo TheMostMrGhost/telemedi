@@ -16,10 +16,6 @@ class Sphinx {
       $this->load_json($this->question_path);
     }
 
-    public function greet(): string {
-      return self::$hello;
-      // $this->loadjj
-    }
 
     private function load_json(string $filename): void {
 
@@ -56,7 +52,8 @@ class Sphinx {
 
 
         for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
-            $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii]);
+            $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii], 
+                            fallback_output: $this->questions['initial_questions']['templates'][$ii]);
             $inputName = 'answer_' . $ii;
             // echo "<li>";
             echo "<br>";
@@ -77,7 +74,8 @@ class Sphinx {
       $templates = implode("\n", $this->questions[$plan_duration]['templates']);
       $gpt_output = $this->prompt_gpt(
           $this->questions[$plan_duration]['tasks'],
-          $templates
+          $templates,
+          $this->questions[$plan_duration]['sample_response']
       );
 
       echo "<div class='sphinx-text'>";
@@ -119,9 +117,12 @@ class Sphinx {
     // echo $text;
     }
 
-    private function prompt_gpt(string &$text, string &$state_prompt = null) : string {
-    //THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
-     return $text;
+    private function prompt_gpt(string &$text, string &$state_prompt = null, string &$fallback_output = "") : string {
+    // THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
+    // THIS FUNCTION IS ONLY FOR DEMONSTRATION PURPOSES, 
+    // 
+    // Wtih API this will send request to ChatGPT, but now it only output $text.
+      return nl2br($fallback_output);
     }
 
 

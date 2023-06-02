@@ -28,7 +28,7 @@ $subpage = file_get_contents('summary_page.php');
 
 // Replace placeholders in the subpage template with specific content
 $subpage = str_replace('{{SUBPAGE_TITLE}}', "Plan overview", $subpage);
-$subpage = str_replace('{{SUBPAGE_CONTENT}}', "", $subpage);
+$subpage = str_replace('{{SUBPAGE_CONTENT}}', "This is a summary of your personal kearning plan. If you need assistance and further guidance, consider buying a premium licence.", $subpage);
         
 $subpage = str_replace('{{LONG TERM PLAN}}', $sphinx->show_summary('long_term_plan'), $subpage);
 $subpage = str_replace('{{MIDDLE TERM PLAN}}', $sphinx->show_summary('middle_term_plan'), $subpage);
