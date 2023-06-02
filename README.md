@@ -1,5 +1,12 @@
 # Telemedi, zadanie z aplikacji na staż
 ## Instalacja 
+Należy zlokalizować folder z którego uruchamiany jest `localhost`, np. `~/public_html`.
+Poniżej używam `FOLDER` jako jego aliasu.
+```
+cd FOLDER
+git clone https://github.com/TheMostMrGhost/telemedi.git
+```
+Otwarcie strony następuje po uruchomieniu w przeglądarce `localhost/telemedi/index.php`
 
 ## Problem
 ### Sformułowanie
