@@ -1,12 +1,12 @@
 # Adaptacyjność
 Podczas projektu z Baz danych mieliśmy zaprojektować bazę danych związanych wybranym przez siebie tematem.
-Praca miała być prowadzona w parach. Okazało się jednak, że kolega z którym się dobrałem bardzo chce zająć
+Praca miała być prowadzona w parach. Okazało się jednak, że kolega z którym się dobrałem, bardzo chce zająć
 się projektem bazy danych, a niekoniecznie stroną internetową. Było to o tyle niefortunne, że miałem identyczne preferencje.
 
 Temat poruszyliśmy dwukrotnie. Za drugim razem, widząc, że rzeczywiście ma szaloną awersję do projektowania stron,
-dałem za wygraną i powiedziałem, że zajmę się stroną.
+dałem za wygraną i powiedziałem, że zajmę się nią zajmę.
 
-Wymagało to pewnego wysiłku i m. in. nauki PHP, jednak projekt ukończyliśmy z sukcesem, a sam proces 
+Wymagało to pewnego wysiłku i m. in. nauki PHP, jednak projekt zakończył się sukcesem, a sam proces 
 okazał się przyjemniejszy niż sądziłem. Dodatkowo uzyskaliśmy pochwałę za ,,doszlifowanie frontendu'', 
 co było dodatkową nagrodą.
 
@@ -14,14 +14,16 @@ co było dodatkową nagrodą.
 # Inicjatywa
 Historia z ostatniej klasy liceum ale w mojej opinii najlepiej oddaje tę cechę.
 
-W ostatniej klasie zmieniono mi nauczycielkę matematyki. 
+W ostatniej klasie zmieniono nam nauczycielkę matematyki. 
 Zależało mi wtedy głównie na uczestnictwie w konkursach i dobrym przygotowaniu do nich.
-Poprzednia nauczycielka była bardzo aktywna, zachęcała do współpracy w ramach kółek i konsultacji.
+Poprzednia nauczycielka była bardzo aktywna, zachęcała do współpracy w ramach kółek i konsultacji,
+jednak nowa miała inne podejście.
+
 Na moje pytanie czy będzie kółko powiedziała, że nie planowała. Nie była przeciwna pomysłowi, jedynie 
 nie chciała nakładać na siebie dodatkowych obowiązków. Widząc to przy kolejnym spotkaniu wyszedłem 
-z inicjatywom, że ja mogę takie kółko prowadzić. 
+z inicjatywom, że ja mogę takie kółko prowadzić, potrzebna mi tylko jej zgoda. 
 Zaproponowałem format w którym ona jedynie przychodzi (wymagania szkolne, ze względów bezpieczeństwa) 
-ale nie musi w nim uczestniczyć aktywnie. Zgodziła się.
+ale nie musi w nim uczestniczyć aktywnie, a ja wszystko koordynuję i prowadzę. Zgodziła się.
 
 Zorganizowałem format w którym jestem głównym prowadzącym ale regularnie proponowałem innym, że mogą 
 poprowadzić wykład na dowolny temat ,,matematyczny'' jaki chcą --- troje się nawet odważyło.
@@ -58,13 +60,14 @@ konkursu, tym razem mniej pochopnie i z większą dozą staranności.
 
 # Samodyscyplina
 Studia ogółem nauczyły mnie wiele z tej dziedziny, w szczególności umiejętności kończenia (,,dowożenia'') zadań i systematycznej pracy.
-Jeśli miałbym wybrać jeden przykład, to w zeszłym semsetrze nie byłem w stanie się powstrzymać, żeby nie zapisać się
-na jeszcze jeden przedmiot, pomimo dość napchanego grafiku.
+Jeśli miałbym wybrać jeden przykład, to jest on następujący.
+
+W zeszłym semsetrze nie byłem w stanie się powstrzymać, żeby nie zapisać się na jeszcze jeden przedmiot, pomimo dość napchanego grafiku.
 Efekty był taki, że ograniczony czas negatywnie przekładał się na moje wyniki z przedmiotu (Programowanie współbieżne).
 Bałem się, że będzie to pierwszy przedmiot którego nie zaliczę.
 Od połowy grudnia wiedziałem, że jestem na granicy i muszę napisać oba zbliżające się projekty na określoną liczbę punktów. 
 Problem był taki, że musiałem uzyskać przynajmniej połowę punktów z każdego znich punktów, co przy testach automatycznych i specyfice programów 
-współbieżnych nie jest zadaniem łatwym (często jest tak, że drobny błąd powoduje 0/10 testów, bo pojawia się w każdym z nich).
+współbieżnych nie jest zadaniem łatwym (często jest tak, że drobny błąd powoduje 0/10 punktów, bo pojawia się w każdym z testów).
 Wobec tego, od początku przerwy świątecznej spędzałem średnio 30 godzin tygodniowo na pisaniu projektów (z jednego przedmiotu).
 
 Ostatecznie udało mi się uzyskać wymaganą liczbę punktów, jednak od końca grudnia do połowy lutego codziennie pracowałem nad 
