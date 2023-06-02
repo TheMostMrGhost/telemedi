@@ -1,8 +1,10 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+
 require_once "./sphinx.php";
 require_once "./displayer.php";
+
 session_start();
 $sphinx = $_SESSION['sphinx'];
 
@@ -13,6 +15,7 @@ if (!isset($_SESSION['initial_stored'])) {
     $_SESSION['initial_stored'] = true;
 }
 
+// Loading displayer
 if (!isset($_SESSION['displayer'])) {
   $displayer = new Displayer('../images/left_pane','../images/right_pane');
   $_SESSION['displayer'] = $displayer;
@@ -29,9 +32,9 @@ $subpage = file_get_contents('content.php');
 $subpageTitle = 'Long-term plan proposition';
 
 // Replace placeholders in the subpage template with specific content
-$subpage = str_replace('{{ACTION SCRIPT}}', "./load_middle_term_plan.php", $subpage);
+$subpage = str_replace('{{ACTION SCRIPT}}', "./load_middle_term_plan.php", $subpage); // ACTION SCRIPT is the one executed on clicking "Next"
 $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);
-$subpage = str_replace('{{CURRENT SCRIPT}}', "./load_long_term_plan.php", $subpage);
+$subpage = str_replace('{{CURRENT SCRIPT}}', "./load_long_term_plan.php", $subpage); 
 $subpage = str_replace('{{SUBPAGE_CONTENT}}', $sphinx->propose_plan('long_term_plan'), $subpage);
 
 // Replace placeholders in the main template with the subpage content

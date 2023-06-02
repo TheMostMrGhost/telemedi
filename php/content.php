@@ -15,6 +15,7 @@
 
   <hr>
 
+<!-- Form that allows to reload (and resubmit) a page to ChatGPT -->
   <form action="./reload.php" method="post">
     <label for="modification-message"><h3>Unsatisfied with the response? Tell me what was wrong.</h3></label><br>
     <input type="hidden" name="script_to_reload" value="{{CURRENT SCRIPT}}">

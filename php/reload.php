@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Load the next script using $nextScript
     // Include or redirect to the next script based on $nextScript
-    // Example: Redirecting to the next script
+    // Redirecting to the next script
     header("Location: $nextScript");
     exit;
   }

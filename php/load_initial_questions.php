@@ -37,7 +37,7 @@ $template = $displayer->prepare_base_frame();
 $subpage = file_get_contents('plain_main.php');
 
 // Replace placeholders in the subpage template with specific content
-$subpage = str_replace('{{ACTION SCRIPT}}', "./load_long_term_plan.php", $subpage);
+$subpage = str_replace('{{ACTION SCRIPT}}', "./load_long_term_plan.php", $subpage); //  SCRIPT is the one executed on clicking "Next"
 $subpage = str_replace('{{CURRENT SCRIPT}}', "./load_initial_questions.php", $subpage);
 $subpage = str_replace('{{SUBPAGE_TITLE}}', "What are you interested in?", $subpage);
 $subpage = str_replace('{{SUBPAGE_CONTENT}}', "", $subpage);

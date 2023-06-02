@@ -1,3 +1,4 @@
+<!-- Index page template -->
 <div class="sphinx-text">
 Greetings, young seeker of truth!
 

@@ -10,6 +10,8 @@ require_once "./sphinx.php";
 require_once "./displayer.php";
 session_start();
 
+// Creating sphinx and displayer object
+// There should be one session, thus we can assign them in the following way
 if (!isset($_SESSION['sphinx'])) {
   $sphinx = new Sphinx("../prompts/questions.json");
   $_SESSION['sphinx'] = $sphinx;
@@ -31,7 +33,7 @@ $template = $displayer->prepare_base_frame();
 $subpage = file_get_contents('./index_page.php');
 
 // // Replace placeholders in the subpage template with specific content
-$subpage = str_replace('{{ACTION SCRIPT}}', "./load_initial_questions.php", $subpage);
+$subpage = str_replace('{{ACTION SCRIPT}}', "./load_initial_questions.php", $subpage); //  SCRIPT is the one executed on clicking "Next"
 
 // Replace placeholders in the main template with the subpage content
 $template = str_replace('{{MIDDLE PAGE}}', $subpage, $template);

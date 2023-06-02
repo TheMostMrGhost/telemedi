@@ -2,44 +2,61 @@
 declare(strict_types=1);
 
 class Sphinx {
-    private static $hello = "Welcome  young seeker of wisdom!I'm Sphinx and I will guide you during your journey!";
-
     private string $question_path;
     private array $questions;
     private array $answers;
     private array $plans;
 
+    /**
+     * Sphinx constructor.
+     *
+     * Initializes a new instance of the Sphinx class.
+     *
+     * @param string $question_path (optional) The path to the JSON file containing questions. Defaults to "./prompts/questions.json".
+     */
     public function __construct(string $question_path = "./prompts/questions.json") {
-      $this->question_path = $question_path;
-      $this->plans = array();
-      $this->load_json($this->question_path);
+        $this->question_path = $question_path;
+        $this->plans = array();
+        $this->load_json($this->question_path);
     }
 
 
-    private function load_json(string $filename): void {
-
-      // Read the contents of the JSON file
-      $jsonData = file_get_contents($this->question_path);
-      // Decode the JSON data into an associative array
-      $this->questions = json_decode($jsonData, true);
+    /**
+     * Load JSON data from the specified file and populate the questions property.
+     *
+     * @throws \RuntimeException If the JSON file cannot be read or parsed.
+     */
+    private function load_json(): void {
+        // Read the contents of the JSON file
+        $jsonData = file_get_contents($this->question_path);
+        // Decode the JSON data into an associative array
+        $this->questions = json_decode($jsonData, true);
     }
 
-    public function check_json() : void{
-      echo "Checking <br>";
-      foreach ($this->questions as $key => $value) {
-          echo $key . ': ' . $value . '<br>';
-      }
 
-      foreach ($this->questions['initial_questions'] as $key => $value) {
-          echo $key . ': ' . $value . '<br>';
-      }
+
+    /**
+     * Check the contents of the loaded JSON data.
+     * Prints the keys and values of the top-level questions and initial_questions arrays.
+     */
+    public function check_json(): void {
+        echo "Checking <br>";
+        foreach ($this->questions as $key => $value) {
+            echo $key . ': ' . $value . '<br>';
+        }
+
+        foreach ($this->questions['initial_questions'] as $key => $value) {
+            echo $key . ': ' . $value . '<br>';
+        }
     }
 
-    public function thank_for_answering() : string {
-      $thanks = "By providing your answers to these eight questions, I'll be able to gather the necessary information to create a tailored and perfect learning plan for the subject of your choice.";
-      return $thanks;
-    }
 
+    /**
+     * Display initial questions to the user and collect their answers.
+     * Returns the HTML content of the questions and input fields.
+     *
+     * @return string The HTML content of the questions and input fields.
+     */
     public function ask_initial_questions(): string {
         ob_start(); // Start output buffering
 
@@ -49,15 +66,12 @@ class Sphinx {
         EOT;
         echo "</div>";
 
-
         for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
-            $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii], 
-                            fallback_output: $this->questions['initial_questions']['templates'][$ii]);
+            $question = $this->prompt_gpt($this->questions['initial_questions']['templates'][$ii], fallback_output: $this->questions['initial_questions']['templates'][$ii]);
             $inputName = 'answer_' . $ii;
             echo "<br>";
             echo "<label for='$inputName'><div class='sphinx-text' style='font-style: italic;'>".($ii + 1). "). $question:</div></label><br>";
             echo "<textarea class='user-text' type='text' id='$inputName' name='$inputName' placeholder='Enter your answer here'></textarea><br><br>";
-
         }
 
         $content = ob_get_clean(); // Get the buffered content and clean the buffer
@@ -66,60 +80,97 @@ class Sphinx {
     }
 
 
-    public function propose_plan(string $plan_duration) : string { // long, middle, short term
-      ob_start(); // Start output buffering
-      $templates = implode("\n", $this->questions[$plan_duration]['templates']);
-      $gpt_output = $this->prompt_gpt(
-          $this->questions[$plan_duration]['tasks'],
-          $templates,
-          $this->questions[$plan_duration]['sample_response']
-      );
+    /**
+     * Propose a plan for the specified duration (long, middle, or short term).
+     * Returns the HTML content of the proposed plan.
+     *
+     * @param string $plan_duration The duration of the plan (long, middle, or short term).
+     * @return string The HTML content of the proposed plan.
+     */
+    public function propose_plan(string $plan_duration): string {
+        ob_start(); // Start output buffering
+        $templates = implode("\n", $this->questions[$plan_duration]['templates']);
+        $gpt_output = $this->prompt_gpt(
+            $this->questions[$plan_duration]['tasks'],
+            $templates,
+            $this->questions[$plan_duration]['sample_response']
+        );
 
-      echo "<div class='sphinx-text'>";
-      echo $gpt_output . "\n"; 
-      echo "</div>";
-      $content = ob_get_clean(); // Get the buffered content and clean the buffer
-      $this->plans[$plan_duration] = $content;
+        echo "<div class='sphinx-text'>";
+        echo $gpt_output . "\n"; 
+        echo "</div>";
+        $content = ob_get_clean(); // Get the buffered content and clean the buffer
+        $this->plans[$plan_duration] = $content;
 
-      return $content; // Return the concatenated string
+        return $content; // Return the concatenated string
     }
 
-    public function show_summary(string $plan_duration) : string {
-      return $this->plans[$plan_duration];
-    }
-
-
-    public function store_initial_questions() : void {
-      $info_for_GPT = "User answers:\n";
-
-      for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
-          $inputName = 'answer_' . $ii;
-          $info_for_GPT .= $inputName . "\n";
-
-          if (isset($_POST[$inputName])) {
-            $info_for_GPT .= $this->answers['initial_questions'][$inputName] = $_POST[$inputName];
-          }
-
-          $info_for_GPT .= "\n";
-      }
-
-      $this->update_gpt_state($info_for_GPT);
+    /**
+     * Show the summary of the plan for the specified duration.
+     * Returns the HTML content of the plan summary.
+     *
+     * @param string $plan_duration The duration of the plan (long, middle, or short term).
+     * @return string The HTML content of the plan summary.
+     */
+    public function show_summary(string $plan_duration): string {
+        return $this->plans[$plan_duration];
     }
 
 
+    /**
+     * Store the user's answers to the initial questions.
+     * Updates the GPT state with the user's answers.
+     *
+     * @return void
+     */
+    public function store_initial_questions(): void {
+        $info_for_GPT = "User answers:\n";
 
-    public function update_gpt_state(string &$text) : void{
-      // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
-      // For now not implemented, since I do not have API
+        for ($ii = 0; $ii < count($this->questions['initial_questions']['templates']); $ii++) {
+            $inputName = 'answer_' . $ii;
+            $info_for_GPT .= $inputName . "\n";
+
+            if (isset($_POST[$inputName])) {
+                $info_for_GPT .= $this->answers['initial_questions'][$inputName] = $_POST[$inputName];
+            }
+
+            $info_for_GPT .= "\n";
+        }
+
+        $this->update_gpt_state($info_for_GPT);
     }
 
-    private function prompt_gpt(string &$text, string &$state_prompt = null, string &$fallback_output = "") : string {
-      // THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
-      // THIS FUNCTION IS ONLY FOR DEMONSTRATION PURPOSES, 
-      // 
-      // Wtih API this will send request to ChatGPT, but now it only output $text.
-      return nl2br($fallback_output);
+
+    /**
+     * Update the GPT state with the provided text.
+     *
+     * @param string &$text The text to update the GPT state with.
+     * @return void
+     */
+    public function update_gpt_state(string &$text): void {
+        // THIS PASSES RESPONSE TO GPT TO UPDATE ITS STATE
+        // For now not implemented, since I do not have API
     }
+
+
+    /**
+     * Prompt the ChatGPT with the provided text and retrieve the response.
+     *
+     * @param string &$text The text to prompt the ChatGPT with.
+     * @param string &$state_prompt The state prompt to provide to the ChatGPT (optional).
+     * @param string &$fallback_output The fallback output to return if ChatGPT is not available (optional).
+     * @return string The response generated by the ChatGPT or the fallback output.
+     */
+    private function prompt_gpt(string &$text, string &$state_prompt = null, string &$fallback_output = ""): string {
+        // THIS ASKS CHATGPT, BUT FOR NOW WE ONLY SIMULATE THAT IT ANSWERS
+        // THIS FUNCTION IS ONLY FOR DEMONSTRATION PURPOSES
+
+        // With the API, this function would send a request to ChatGPT and retrieve the response.
+        // However, in this demonstration, it simply returns the fallback output.
+
+        return nl2br($fallback_output);
+    }
+
 
 
 

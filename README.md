@@ -91,15 +91,15 @@ Dzięki temu można stale udoskonalać doświadczenie edukacyjne i dostosowywać
 
 ## Dokumentacja checklist
 - [X] base.php 
-- [ ] index\_page.php
-- [ ] load\_long\_term\_plan.php
-- [ ] load\_short\_term\_plan.php
-- [ ] reload.php
-- [ ] subpage.php
-- [ ] content.php
-- [ ] index.php
-- [ ] load\_middle\_term\_plan.php
-- [ ] plain\_main.php
+- [X] index\_page.php
+- [X] load\_long\_term\_plan.php
+- [X] load\_short\_term\_plan.php
+- [X] reload.php
+- [X] subpage.php
+- [X] content.php
+- [X] index.php
+- [X] load\_middle\_term\_plan.php
+- [X] plain\_main.php
 - [ ] sphinx.php
 - [ ] summary\_page.php
 - [ ] displayer.php

@@ -31,7 +31,7 @@ $subpageTitle = 'Middle-term plan';
 $subpageContent = '<p>This is the content of the subpage.</p>';
 
 // Replace placeholders in the subpage template with specific content
-$subpage = str_replace('{{ACTION SCRIPT}}', "./load_short_term_plan.php", $subpage);
+$subpage = str_replace('{{ACTION SCRIPT}}', "./load_short_term_plan.php", $subpage); //  SCRIPT is the one executed on clicking "Next"
 $subpage = str_replace('{{SUBPAGE_TITLE}}', $subpageTitle, $subpage);
 $subpage = str_replace('{{CURRENT SCRIPT}}', "./load_middle_term_plan.php", $subpage);
 $subpage = str_replace('{{SUBPAGE_CONTENT}}', $sphinx->propose_plan('middle_term_plan'), $subpage);
