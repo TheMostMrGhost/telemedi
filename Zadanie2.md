@@ -1,4 +1,15 @@
 # Adaptacyjność
+Podczas projektu z Baz danych mieliśmy zaprojektować bazę danych związanych wybranym przez siebie tematem.
+Praca miała być prowadzona w parach. Okazało się jednak, że kolega z którym się dobrałem bardzo chce zająć
+się projektem bazy danych, a niekoniecznie stroną internetową. Było to o tyle niefortunne, że miałem identyczne preferencje.
+
+Temat poruszyliśmy dwukrotnie. Za drugim razem, widząc, że rzeczywiście ma szaloną awersję do projektowania stron,
+dałem za wygraną i powiedziałem, że zajmę się stroną.
+
+Wymagało to pewnego wysiłku i m. in. nauki PHP, jednak projekt ukończyliśmy z sukcesem, a sam proces 
+okazał się przyjemniejszy niż sądziłem. Dodatkowo uzyskaliśmy pochwałę za ,,doszlifowanie frontendu'', 
+co było dodatkową nagrodą.
+
 
 # Inicjatywa
 Historia z ostatniej klasy liceum ale w mojej opinii najlepiej oddaje tę cechę.
@@ -45,3 +56,17 @@ Sprawa się rozwiązała, konkurs zarzuciliśmy z racji nieprzychylnego tematu i
 jednak umówiliśmy się, że to nie był nasz ostatni wspólny projekt. Prawdę mówiąc to jesteśmy na etapie wyboru kolejnego 
 konkursu, tym razem mniej pochopnie i z większą dozą staranności.
 
+# Samodyscyplina
+Studia ogółem nauczyły mnie wiele z tej dziedziny, w szczególności umiejętności kończenia (,,dowożenia'') zadań i systematycznej pracy.
+Jeśli miałbym wybrać jeden przykład, to w zeszłym semsetrze nie byłem w stanie się powstrzymać, żeby nie zapisać się
+na jeszcze jeden przedmiot, pomimo dość napchanego grafiku.
+Efekty był taki, że ograniczony czas negatywnie przekładał się na moje wyniki z przedmiotu (Programowanie współbieżne).
+Bałem się, że będzie to pierwszy przedmiot którego nie zaliczę.
+Od połowy grudnia wiedziałem, że jestem na granicy i muszę napisać oba zbliżające się projekty na określoną liczbę punktów. 
+Problem był taki, że musiałem uzyskać przynajmniej połowę punktów z każdego znich punktów, co przy testach automatycznych i specyfice programów 
+współbieżnych nie jest zadaniem łatwym (często jest tak, że drobny błąd powoduje 0/10 testów, bo pojawia się w każdym z nich).
+Wobec tego, od początku przerwy świątecznej spędzałem średnio 30 godzin tygodniowo na pisaniu projektów (z jednego przedmiotu).
+
+Ostatecznie udało mi się uzyskać wymaganą liczbę punktów, jednak od końca grudnia do połowy lutego codziennie pracowałem nad 
+wyeliminowaniem wszystkich możliwych błędów. Stawka była wysoka, bo jedno potknięcie oznaczało pójście na marne wszystkich 
+poprzednich wysiłków, jednak uparłem się i wykonałem zadanie.
