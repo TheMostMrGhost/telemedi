@@ -1,6 +1,13 @@
 <?php 
 declare(strict_types=1);
 
+/**
+ * Class responsible for communication with ChatGPT API.
+ * Takes input from a special json file and generates responses based on templates and user input.
+ * Then arranges the output in html format and returns it as a string.
+ *
+ * This functionality is enclosed in this class, to allow for easy modification of prompts.
+ */
 class Sphinx {
     private string $question_path;
     private array $questions;
@@ -38,6 +45,8 @@ class Sphinx {
     /**
      * Check the contents of the loaded JSON data.
      * Prints the keys and values of the top-level questions and initial_questions arrays.
+     *
+     * Purely for validation purposes, currently not used
      */
     public function check_json(): void {
         echo "Checking <br>";
@@ -54,6 +63,8 @@ class Sphinx {
     /**
      * Display initial questions to the user and collect their answers.
      * Returns the HTML content of the questions and input fields.
+     *
+     * Uses output buffering to avoid string concatenation.
      *
      * @return string The HTML content of the questions and input fields.
      */
@@ -84,6 +95,8 @@ class Sphinx {
      * Propose a plan for the specified duration (long, middle, or short term).
      * Returns the HTML content of the proposed plan.
      *
+     * Requires a json file with tasks and templates, which is used for prompt generation.
+     *
      * @param string $plan_duration The duration of the plan (long, middle, or short term).
      * @return string The HTML content of the proposed plan.
      */
@@ -106,7 +119,7 @@ class Sphinx {
     }
 
     /**
-     * Show the summary of the plan for the specified duration.
+     * Show the summary of the plan for the specified duration (i. e. all three plans on one page).
      * Returns the HTML content of the plan summary.
      *
      * @param string $plan_duration The duration of the plan (long, middle, or short term).

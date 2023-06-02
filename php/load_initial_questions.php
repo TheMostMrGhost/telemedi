@@ -1,3 +1,5 @@
+<!-- Generates initial poll -->
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -44,8 +46,6 @@ $subpage = str_replace('{{SUBPAGE_CONTENT}}', "", $subpage);
 $subpage = str_replace('{{FORM CONTENT}}', $sphinx->ask_initial_questions(), $subpage);
 
 // Replace placeholders in the main template with the subpage content
-// $template = str_replace('{{TITLE}}', $title, $template);
-// $template = str_replace('{{HEADER}}', $header, $template);
 $template = str_replace('{{MIDDLE PAGE}}', $subpage, $template);
 
 // Output the final HTML

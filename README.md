@@ -100,14 +100,11 @@ Dzięki temu można stale udoskonalać doświadczenie edukacyjne i dostosowywać
 - [X] index.php
 - [X] load\_middle\_term\_plan.php
 - [X] plain\_main.php
-- [ ] sphinx.php
-- [ ] summary\_page.php
-- [ ] displayer.php
-- [ ] load\_initial\_questions.php
-- [ ] load\_page.php
-- [ ] product2.php
-- [ ] store\_initial\_questions.php
-- [ ] summary.php
+- [X] sphinx.php
+- [X] summary\_page.php
+- [X] displayer.php
+- [X] load\_initial\_questions.php
+- [X] summary.php
 
 
 
